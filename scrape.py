@@ -18,6 +18,8 @@ soup = BeautifulSoup(page.content, 'html.parser')
 
 print(soup.prettify())"""
 
+# this is a comment
+
 options = webdriver.ChromeOptions()
 options.add_argument('--ignore-certificate-errors')
 options.add_argument('--incognito')
