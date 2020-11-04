@@ -24,7 +24,7 @@ options.add_argument('--incognito')
 options.add_argument('--headless')
 driver = webdriver.Chrome("/usr/local/bin/chromedriver", chrome_options=options)
 
-driver.get("https://sportsbook.fanduel.com/sports?utm_source=homepage")
+driver.get("https://pa.sportsbook.fanduel.com/sports/event/922632.3")
 
 more_buttons = driver.find_elements_by_class_name("btn__content")
 for x in range(len(more_buttons)):
@@ -32,4 +32,14 @@ for x in range(len(more_buttons)):
       driver.execute_script("arguments[0].click();", more_buttons[x])
       time.sleep(1)
 page_source = driver.page_source
-print(page_source)
+#print(page_source)
+
+soup = BeautifulSoup(page_source, 'lxml')
+lines = []
+lines_selector = soup.find_all('div', class_='event')
+
+for line in lines_selector:
+	print(line.get_text())
+	#break
+
+
