@@ -19,6 +19,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 print(soup.prettify())"""
 
 # this is a comment
+# this is another comment
 
 options = webdriver.ChromeOptions()
 options.add_argument('--ignore-certificate-errors')
